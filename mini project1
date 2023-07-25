@@ -1,0 +1,105 @@
+import random 
+def hangman():
+    list_words=["kavya", "jyoti", "hema", "garima", "diksha"]
+    word=random.choice(list_words)
+    attempts=10
+    guessmade=''
+    a=set("abcdefghijklmnopqrstuvwxyz")
+    
+    
+    while(len(word))>0:
+        main_word=""
+        missed=0
+        
+        for letter in word:
+            if letter in guessmade:
+                main_word=main_word+letter
+            else:
+                main_word=main_word+"_ "
+                
+        if main_word==word:
+            print(main_word)
+            print("you won")
+            break
+        
+        print("guess the main word",main_word)
+        guess=input()
+        
+        if guess in a:
+            guessmade = guessmade + guess
+        else:
+            print("enter valid character")
+            guess=input()
+            
+        if guess not in word:
+            attempts=attempts-1
+            
+            if attempts==9:
+                print("9 turns left")
+                print("-------------")
+            if attempts==8:
+                print("8 turns left")
+                print("      O       ") 
+            if attempts==7:
+                print("7 turns left")
+                print("-------------")
+                print("      O      ") 
+                print("      |      ") 
+            if attempts==6:
+                print("6 turns left")
+                print("-------------")
+                print("      O      ") 
+                print("      |      ")
+                print("     /      ")
+            if attempts==6:
+                print("6 turns left")
+                print("-------------")
+                print("      O      ") 
+                print("      |      ")
+                print("     /      ")
+            if attempts==5:
+                print("5 turns left")
+                print("-------------")
+                print("      O      ") 
+                print("      |      ")
+                print("     / \     ")
+            if attempts==4:
+                print("4 turns left")
+                print("-------------")
+                print("     \O      ") 
+                print("      |      ")
+                print("     / \     ")
+            if attempts==3:
+                print("3 turns left")
+                print("-------------")
+                print("     \O/      ") 
+                print("      |      ")
+                print("     / \     ")
+            if attempts==2:
+                print("2 turns left")
+                print("-------------")
+                print("     \O/ |     ") 
+                print("      |      ")
+                print("     / \     ")
+            if attempts==1:
+                print("1 turn left")
+                print("-------------")
+                print("     \O/_|      ") 
+                print("      |      ")
+                print("     / \     ")
+            if attempts==0:
+                print("you loose the game")
+                print("you let a good man die")
+            
+                
+                
+                
+            
+    
+ 
+
+name=input("Enter your name:")
+print("welcome "+name)
+print("try to guess the world in 10 attempts!")
+hangman()
+
